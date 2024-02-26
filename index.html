@@ -7,15 +7,63 @@
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/bootstrap.min.css">
 </head>
-<body>
+<body class="badi">
+    <!-- reg and log modal -->
+    <div class="modal_outer all_modals" id="signup" style="display: none;">
+        <div class="modal_con d-flex flex-column">
+            <div class="modal_header">
+                Регистрация
+            </div>
+            <div class="modal_inputs d-flex flex-column">
+                <input type="text" name="login" id="login" class="modalInp" placeholder="Придумайте ваш логин">
+                <input type="text" name="email" id="email" class="modalInp" placeholder="Ваша почта">
+                <input type="text" name="pass1" id="pass1" class="modalInp" placeholder="Пароль">
+                <input type="text" name="pass2" id="pass2" class="modalInp" placeholder="Повторите пароль">
+                <span class="pt-3">
+                    <input type="checkbox" name="sogl" id="sogl" class="custom-checkbox">
+                    <label for="sogl" class="fs-12">Согласие на обработку</label>
+                </span>
+            </div>
+            <input type="submit" value="Продолжить" class="reg_but_border">
+            <div class="modal_switch">
+                <span>Уже есть аккаунт?</span>
+                <button class="button_no_button d-flex justify-content-between gap-3 align-self-center" data-target="login" onclick="open_modal(this)">
+                    <span class="button_no_button_text">Войти</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal_outer all_modals" id="login" style="display: none;">
+        <div class="modal_con d-flex flex-column">
+            <div class="modal_header">
+                Вход
+            </div>
+            <div class="modal_inputs d-flex flex-column">
+                <input type="text" name="login" id="login" class="modalInp" placeholder="Логин">
+                <input type="text" name="pass1" id="pass1" class="modalInp" placeholder="Пароль">
+                <p class="fs-12 pt-3">Забыли пароль?</p>
+            </div>
+            <input type="submit" value="Продолжить" class="reg_but_border">
+            <div class="modal_switch">
+                <span>Нет аккаунта?</span>
+                <button class="button_no_button d-flex justify-content-between gap-3 align-self-center" data-target="signup" onclick="open_modal(this)">
+                    <span class="button_no_button_text">Регистрация</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- modals_end -->
+
     <div class="offer_block_outer">
         <div class="main_wrapper">
             <div class="offer_block_inner d-flex flex-column justify-content-between">
                 <header class="d-flex justify-content-between">
                     <img src="./imgs/logo.png" alt="CodeIT - Онлайн редактор для кода" class="logo">
-                    <button class="regular_button">Начать</button>
+                    <button class="regular_button" data-target="signup" onclick="open_modal(this)">Начать</button>
                 </header>
-                <div class="offer_mid d-flex justify-content-between align-items-center">
+                <div class="offer_mid d-flex justify-content-between align-items-center pt-5 mt-5">
                     <div class="offer_text d-flex flex-column gap-3">
                         <h1 class="offer_h1">СodeIT -Легкость простота и удобство</h1>
                         <div class="additional_text">
@@ -25,8 +73,8 @@
                     <img src="./imgs/somecode.png" alt="" srcset="">
                 </div>
                 <div class="offer_bottom">
-                    <button class="button_no_button d-flex justify-content-between gap-3">
-                        <span class="button_no_button_text">Начать</span>
+                    <button class="but_border d-flex justify-content-between gap-3" data-target="signup" onclick="open_modal(this)">
+                        <span class="button_no_button_text">Начать сейчас</span>
                         <img src="./imgs/go.svg" alt="Начать" class="pt-1">
                     </button>
                 </div>
@@ -41,7 +89,7 @@
                 </span>
                 <a href="#" class="navigation_addition_text d-flex justify-content-between align-items-center non_a">
                     <span class="fs-22">Революция в мире редакторов</span>
-                    <img src="./imgs/arrow_right.png" alt="О компании CodeIT">
+                    <!-- <img src="./imgs/arrow_right.png" alt="О компании CodeIT"> -->
                 </a>
             </div>
             <div class="nav_sml_block d-flex flex-column justify-content-between">
@@ -102,7 +150,7 @@
                 <span class="navigation_addition_text mt-4">
                     Попробуйте уже сейчас
                 </span>
-                <a href="#" class="d-flex align-items-center justify-content-between non_a">
+                <a href="#" class="d-flex align-items-center justify-content-between non_a" data-target="signup" onclick="open_modal(this)">
                     <span class="navigation_h3">Начать</span>
                     <img src="./imgs/arrow_right.png" alt="Плюсы">
                 </a>
@@ -146,7 +194,7 @@
                     </span>
                 </div>
             </div>
-            <button class="regular_button reg_but_width align-self-center mt-5">Узнать больше</button>
+            <button class="regular_button reg_but_width align-self-center mt-5" data-target="signup" onclick="open_modal(this)">Узнать больше</button>
         </div>
     </div>
     <div class="main_wrapper mt-5 mb-5">
@@ -156,7 +204,7 @@
                     Работайте где вам <br> удобно
                 </span>
                 <span class="block_header_addition_text align-self-center">
-                    Всегда получайте согласованные среды разработкикоторые повышают производительность и расширяют возможности сотрудничества.
+                    Работайте из дома на улице или в кафе. Это ваш выбор!
                 </span>
             </div>
             <div class="comfort_container d-flex justify-content-around">
@@ -176,7 +224,7 @@
                     <span class="comfort_con_text">От регистрации до создания проекта отделяет всего одна кнопка. Попробуйте и вы!</span>
                 </div>
             </div>
-            <button class="button_no_button d-flex justify-content-between gap-3 align-self-center">
+            <button class="button_no_button d-flex justify-content-between gap-3 align-self-center" data-target="signup" onclick="open_modal(this)">
                 <span class="button_no_button_text">Начать сейчас</span>
                 <img src="./imgs/go.svg" alt="Начать" class="pt-1">
             </button>
@@ -187,7 +235,7 @@
                     Ускорьте ваш <br> рабочий процесс
                 </span>
                 <span class="block_header_addition_text align-self-center">
-                    Сократите цикл проверки с помощью универсальной платформы дляэффективные проверки кода.
+                    Познайте что такое скорость разработки.
                 </span>
             </div>
             <div class="speedup_dwn position-relative d-flex flex-row-reverse">
@@ -196,20 +244,19 @@
                 </div>
                 <div class="speedup_three_con d-flex flex-column text-start justify-content-between pt-4">
                     <div class="spedup_el d-flex flex-column gap-2">
-                        <span class="fs_24 f_bold">Каждая ветка — это URL</span>
-                        <span class="fs_18">Получите облачную среду разработки для каждого. Запускается через 2 секунды и объединяет все инструменты проверки кода на единой платформе.</span>
+                        <span class="fs_24 f_bold">Копируйте ваш код</span>
+                        <span class="fs_18">Наша облачная среда позволяет копировать код из Git-репозитория по щелчку одной кнопки.</span>
                     </div>
                     <div class="spedup_el d-flex flex-column gap-2">
-                        <span class="fs_24 f_bold">Проверка кода в срок</span>
-                        <span class="fs_18">Экономьте часы. Видеть код, тесты и превью, сделайте любойнеобходимые изменения и объедините их.</span>
+                        <span class="fs_24 f_bold">Предпросмотр</span>
+                        <span class="fs_18">Экономьте ваше время. Превью кода находится справа, со всеми инструментами для более комплексного доступа.</span>
                     </div>
                     <div class="spedup_el d-flex flex-column gap-2">
-                        <span class="fs_24 f_bold">Расширьте возможности</span>
+                        <span class="fs_24 f_bold">Делитесь</span>
                         <span class="fs_18">Делитесь кодом со всеми. Приглашайте людей для просмотра. Создавайте и творите!</span>
                     </div>
-                    <button class="button_no_button d-flex justify-content-between gap-3 ps-2">
-                        <span class="button_no_button_text">Начать сейчас</span>
-                        <img src="./imgs/go.svg" alt="Начать" class="pt-1">
+                    <button class="button_no_button d-flex justify-content-between gap-3 ps-2" data-target="signup" onclick="open_modal(this)">
+                        <span class="button_no_button_text">Репозиторий Git</span>
                     </button>
                 </div>
             </div>
@@ -258,7 +305,7 @@
         </div>
         <div class="blocks_gap CTA_on_page d-flex flex-column text-center align-items-center gap-5">
             <div class="CTA_on_page_head">Присоединяйтесь к нам и начните творить!</div>
-            <button class="regular_button">Попробуйте сейчас</button>
+            <button class="regular_button" data-target="signup" onclick="open_modal(this)">Попробуйте сейчас</button>
         </div>
         <div class="blocks_gap d-flex flex-column">
             <div class="FAQ_header d-flex flex-column gap-5 mt-5">
@@ -362,7 +409,7 @@
                     <a href="#" class="socials fs_24">Вконтакте</a>
                 </div>
             </span>
-            <button class="regular_button">Попробуйте сейчас</button>
+            <button class="regular_button" data-target="signup" onclick="open_modal(this)">Попробуйте сейчас</button>
         </div>
         <footer class="d-flex flex-column align-items-center text-center py-3 gap-3">
             <div class="footer_part d-flex justify-content-between align-items-center py-3">
