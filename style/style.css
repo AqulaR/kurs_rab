@@ -297,13 +297,15 @@
     color: #fff;
 }
 
+@media (width <= 1000px) {
+    .offer_img {
+        display: none;
+    }
+}
+
 @media (width <= 560px) {
     .offer_h1 {
         width: auto;
-    }
-
-    .offer_img {
-        display: none;
     }
 
     .offer_block_inner {
